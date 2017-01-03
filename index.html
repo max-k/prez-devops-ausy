@@ -113,6 +113,7 @@
       }
       img[alt=TreeptikLogo] { width: 320px; }
       img[alt=AusyLogo] { margin-bottom: 65px; width: 280px; }
+      img[alt=whyci] { width: 750px; }
     </style>
   </head>
   <body>
@@ -153,7 +154,62 @@ layout: false
 template: inverse
 # Intégration continue et déploiement continu (Romain)
 ---
+layout: true
+class: center, middle
+---
+# Intégration continue
+![whyci](images/why_ci.png)
+---
 layout: false
+## Qu'est-ce que l'intégration continue ?
+Morceau de la chaine de production Agile
+
+####Déclenche un ou plusieurs scénario(s) bloquant ou non, via un évenement
+- tests unitaires (le code, ex:  test les retours de méthodes)
+- tests fonctionnels (les features, ex: le process d'authentification utilisateur fonctionne toujours)
+- build de l'application
+- notifications
+
+####Peut générer d'autres actions en chaine : 
+- ouvrir un ticket de bug
+- lancer un test de conformité / performance
+- lancer le déploiement vers un environnement supérieur dans la chaine
+
+####Objectifs : 
+- gagner du temps
+- fluidifier le diagnostic d'un bug
+- améliorer la communication
+---
+layout: true
+class: center, middle
+---
+# Déploiement continu
+![automaateall](images/automateallthings.png)
+---
+layout: false
+## Qu'est-ce que le déploiement continue ?
+
+Intervient après les tests de l'applications
+
+- automatise la mise en production du package
+- gère les dépendances de la release
+- gère la mise à jour progressive du code
+- assure la non interruption du service en production
+- permet un retour arrière aisé
+
+Différentes méthodes possibles :
+
+- AB TESTING
+
+tester deux versions simultanées du code
+
+- BLUE GREEN
+
+nouveau code poussé en production (green), switch à partir de l'ancien code (blue) via un nouveau routage réseau
+
+** attention ** aux pertes de sessions si l'application n'est pas stateless
+
+** attention ** si il y'a un changement de schéma dans les db relationnelles
 ---
 template: inverse
 # La communication dans le processus DevOps - Process et outils (Thomas)
