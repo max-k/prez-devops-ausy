@@ -114,6 +114,8 @@
       img[alt=TreeptikLogo] { width: 320px; }
       img[alt=AusyLogo] { margin-bottom: 65px; width: 280px; }
       img[alt=whyci] { width: 750px; }
+      img[alt=Stade_Orange_Velodrome] { width: 570px; }
+      p.legend{ }
     </style>
   </head>
   <body>
@@ -132,12 +134,12 @@ class: center, middle, inverse
 ---
 layout: false
 ## <p align="center">Quoi ? Où ? Quand ? Avec Qui ?</p>
-Journée d'échange autour de l'écosystème DevOps / Cloud / Docker<br>
-Second événement organisé par Treeptik<br>
-Source d'inspiration, d'informations pratiques et l'occasion de rencontrer tous les acteurs du domaine
-#### Lieu : Marseille - Stade Orange Vélodrome
-![Stade Orange Vélodrome](images/orange_velodrome.jpg)
-#### Quand : 7 OCTOBRE 2016
+<p align="justify">Convention lors de laquelle les acteurs et grands comptes explique leur vision du « devops » et comment ils ont opéré des mutations au sein de leur procédures, moyens de communication, outils et infrastructure pour que la production soit plus efficace et adapté aux nouvelles façons développer et maintenir une application en condition opérationnelle.</p>
+
+
+![Stade_Orange_Velodrome](images/orange_velodrome.jpg)
+<p class="pull-right">Quand : 7 OCTOBRE 2016<br/>
+Lieu : Marseille - Stade Orange Vélodrome</p>
 ---
 layout: false
 Des grands comptes
@@ -162,9 +164,9 @@ class: center, middle
 ---
 layout: false
 ## Qu'est-ce que l'intégration continue ?
-Morceau de la chaine de production Agile
+A chaque évolution du code de l'application
 
-####Déclenche un ou plusieurs scénario(s) bloquant ou non, via un évenement
+####Déclencher un ou plusieurs scénario(s) bloquant ou non, via un évenement
 - tests unitaires (le code, ex:  test les retours de méthodes)
 - tests fonctionnels (les features, ex: le process d'authentification utilisateur fonctionne toujours)
 - build de l'application
@@ -207,9 +209,11 @@ tester deux versions simultanées du code
 
 nouveau code poussé en production (green), switch à partir de l'ancien code (blue) via un nouveau routage réseau
 
-** attention ** aux pertes de sessions si l'application n'est pas stateless
+** attention aux effets de bord** 
 
-** attention ** si il y'a un changement de schéma dans les db relationnelles
+pertes de sessions si l'application n'est pas stateless
+<br/>
+changement de schéma dans les db relationnelles
 ---
 template: inverse
 # La communication dans le processus DevOps - Process et outils (Thomas)
