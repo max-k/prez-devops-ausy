@@ -115,7 +115,8 @@
       img[alt=AusyLogo] { margin-bottom: 65px; width: 280px; }
       img[alt=whyci] { width: 750px; }
       img[alt=Stade_Orange_Velodrome] { width: 570px; }
-      p.legend{ }
+      img[alt=monitoring] { width: 550px; }
+      img[alt=petvscattle] { width: 740px; }
     </style>
   </head>
   <body>
@@ -191,12 +192,13 @@ class: center, middle
 layout: false
 ## Qu'est-ce que le déploiement continue ?
 
-Intervient après les tests de l'applications
+Intervient après les tests et validations de l'applications
 
 - automatise la mise en production du package
 - gère les dépendances de la release
 - gère la mise à jour progressive du code
 - assure la non interruption du service en production
+- execute des tests post-production
 - permet un retour arrière aisé
 
 Différentes méthodes possibles :
@@ -209,11 +211,10 @@ tester deux versions simultanées du code
 
 nouveau code poussé en production (green), switch à partir de l'ancien code (blue) via un nouveau routage réseau
 
-** attention aux effets de bord** 
-
+** attention aux effets de bord** <br/>
 pertes de sessions si l'application n'est pas stateless
 <br/>
-changement de schéma dans les db relationnelles
+changement de schémas dans les db relationnelles
 ---
 template: inverse
 # La communication dans le processus DevOps - Process et outils (Thomas)
@@ -224,6 +225,69 @@ template: inverse
 # Architectures immutables (Romain)
 ---
 layout: false
+
+## Automatiser le process en production 1/4
+  - coûts serveurs sont de plus en plus bas
+  - valeur = management des serveur 
+  - ne plus documenter l'histoire et arrêter le spécifique
+  - la connaissance != automatisation
+  - différents états possible = spaguettis (non predictible)
+  - fixer l'histoire dans un état immutable (état binaire)
+  - résultat = instances de serveur éphémères et immutables
+
+![petvscattle](images/pets_vs_cattle.jpg)
+
+
+---
+layout: false
+
+## Automatiser le process en production 2/4
+
+###HUMANLESS POWERTOOLS
+  - service down , l'entreprise perd de l'argent
+  - objectif 100% d'uptime > perfection
+  - perfection n'est pas humaine
+  - server uptime != service uptime
+  - l'humain qui se balade sur la production est un problème
+
+
+  - capacity planning : immutable infra != 2 serveurs
+  - il faut des ressource pour copier une partie de l'infra pendant un moment pour l'effacer ensuite
+
+---
+layout: false
+
+## Automatiser le process en production 3/4
+
+#### STATELESS et mono process
+BUILD AND LIVE WITHOUT DATA
+
+up et prêt à recevoir de requêtes = état vivant
+
+##
+
+**redéployer une nouvelle instance**, pourquoi ?
+
+- maj version N+1<br/>
+- l'application a planté<br/>
+- maj OS<br/>
+- maintenance physique<br/>
+- log + monitoring prédit que l'appli va planter<br/>
+
+
+###**ET ... <u>trasher</u> l'ancienne version !**
+
+---
+layout: false
+
+## Automatiser le process en production 4/4
+#### Rester consistant et prédictible
+
+- centraliser les logs sans exceptions !
+- tout monitorer ! 
+
+![monitoring](images/monitoring.jpg)
+
 ---
 template: inverse
 # Conclusion (Thomas)
