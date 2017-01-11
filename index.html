@@ -113,6 +113,10 @@
       }
       img[alt=TreeptikLogo] { width: 320px; }
       img[alt=AusyLogo] { margin-bottom: 65px; width: 280px; }
+      img[alt=whyci] { width: 750px; }
+      img[alt=Stade_Orange_Velodrome] { width: 570px; }
+      img[alt=monitoring] { width: 550px; }
+      img[alt=petvscattle] { width: 740px; }
     </style>
   </head>
   <body>
@@ -122,14 +126,28 @@ layout: true
 class: center, middle, inverse
 ---
 # Retour sur le DevOps D-Day 2016
-![TreeptikLogo](images/LogoTreeptikRVB.png)
-![AusyLogo](images/Logo_Ausy.png)
-### par [Thomas Sarboni](mailto:max-k@post.com) et [Romain DiSanto](mailto:romain.disanto@gmail.com)
+![TreeptikLogo](images/logo/LogoTreeptikRVB.png)
+![AusyLogo](images/logo/Logo_Ausy.png)
+### par [Thomas Sarboni](mailto:max-k@post.com) et [Romain Di Santo](mailto:romain.disanto@gmail.com)
 .footnote[Shake Your Brain<br />.red[©] [Ausy](http://www.ausy.fr) 2016]
 ---
 # Introduction : Présentation de la conférence (Romain)
 ---
 layout: false
+## <p align="center">Quoi ? Où ? Quand ? Avec Qui ?</p>
+<p align="justify">Convention lors de laquelle les acteurs et grands comptes explique leur vision du « devops » et comment ils ont opéré des mutations au sein de leur procédures, moyens de communication, outils et infrastructure pour que la production soit plus efficace et adapté aux nouvelles façons développer et maintenir une application en condition opérationnelle.</p>
+
+
+![Stade_Orange_Velodrome](images/orange_velodrome.jpg)
+<p class="pull-right">Quand : 7 OCTOBRE 2016<br/>
+Lieu : Marseille - Stade Orange Vélodrome</p>
+---
+layout: false
+Des grands comptes
+
+![plancheLogo](images/logo/page_logos.png)
+<p align="right">pour ne citer qu'eux ...</p>
+
 ---
 template: inverse
 # Le rôle du SysAdmin dans le process DevOps (Thomas)
@@ -139,7 +157,64 @@ layout: false
 template: inverse
 # Intégration continue et déploiement continu (Romain)
 ---
+layout: true
+class: center, middle
+---
+# Intégration continue
+![whyci](images/why_ci.png)
+---
 layout: false
+## Qu'est-ce que l'intégration continue ?
+A chaque évolution du code de l'application
+
+####Déclencher un ou plusieurs scénario(s) bloquant ou non, via un évenement
+- tests unitaires (le code, ex:  test les retours de méthodes)
+- tests fonctionnels (les features, ex: le process d'authentification utilisateur fonctionne toujours)
+- build de l'application
+- notifications
+
+####Peut générer d'autres actions en chaine : 
+- ouvrir un ticket de bug
+- lancer un test de conformité / performance
+- lancer le déploiement vers un environnement supérieur dans la chaine
+
+####Objectifs : 
+- gagner du temps
+- fluidifier le diagnostic d'un bug
+- améliorer la communication
+---
+layout: true
+class: center, middle
+---
+# Déploiement continu
+![automaateall](images/automateallthings.png)
+---
+layout: false
+## Qu'est-ce que le déploiement continue ?
+
+Intervient après les tests et validations de l'applications
+
+- automatise la mise en production du package
+- gère les dépendances de la release
+- gère la mise à jour progressive du code
+- assure la non interruption du service en production
+- execute des tests post-production
+- permet un retour arrière aisé
+
+Différentes méthodes possibles :
+
+- AB TESTING
+
+tester deux versions simultanées du code
+
+- BLUE GREEN
+
+nouveau code poussé en production (green), switch à partir de l'ancien code (blue) via un nouveau routage réseau
+
+** attention aux effets de bord** <br/>
+pertes de sessions si l'application n'est pas stateless
+<br/>
+changement de schémas dans les db relationnelles
 ---
 template: inverse
 # La communication dans le processus DevOps - Process et outils (Thomas)
@@ -150,6 +225,69 @@ template: inverse
 # Architectures immutables (Romain)
 ---
 layout: false
+
+## Automatiser le process en production 1/4
+  - coûts serveurs sont de plus en plus bas
+  - valeur = management des serveur 
+  - ne plus documenter l'histoire et arrêter le spécifique
+  - la connaissance != automatisation
+  - différents états possible = spaguettis (non predictible)
+  - fixer l'histoire dans un état immutable (état binaire)
+  - résultat = instances de serveur éphémères et immutables
+
+![petvscattle](images/pets_vs_cattle.jpg)
+
+
+---
+layout: false
+
+## Automatiser le process en production 2/4
+
+###HUMANLESS POWERTOOLS
+  - service down , l'entreprise perd de l'argent
+  - objectif 100% d'uptime > perfection
+  - perfection n'est pas humaine
+  - server uptime != service uptime
+  - l'humain qui se balade sur la production est un problème
+
+
+  - capacity planning : immutable infra != 2 serveurs
+  - il faut des ressources pour copier une partie de l'infra pendant un moment pour l'effacer ensuite
+
+---
+layout: false
+
+## Automatiser le process en production 3/4
+
+#### STATELESS et mono process
+BUILD AND LIVE WITHOUT DATA
+
+up et prêt à recevoir de requêtes = état vivant
+
+##
+
+**redéployer une nouvelle instance**, pourquoi ?
+
+- maj version N+1<br/>
+- l'application a planté<br/>
+- maj OS<br/>
+- maintenance physique<br/>
+- log + monitoring prédit que l'appli va planter<br/>
+
+
+###**ET ... <u>trasher</u> l'ancienne version !**
+
+---
+layout: false
+
+## Automatiser le process en production 4/4
+#### Rester consistant et prédictible
+
+- centraliser les logs sans exceptions !
+- tout monitorer ! 
+
+![monitoring](images/monitoring.jpg)
+
 ---
 template: inverse
 # Conclusion (Thomas)
