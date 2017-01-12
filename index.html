@@ -117,6 +117,11 @@
       img[alt=Stade_Orange_Velodrome] { width: 570px; }
       img[alt=monitoring] { width: 550px; }
       img[alt=petvscattle] { width: 740px; }
+      img[alt=NotDevOps] { width: 750px; }
+      img[alt=DevOps] { width: 750px; }
+      img[alt=Cooperation] { height: 450px; }
+      img[alt=DevOpsLoop] { width: 750px; }
+      img[alt=Collaboration] { height: 500px; }
     </style>
   </head>
   <body>
@@ -131,7 +136,7 @@ class: center, middle, inverse
 ### par [Thomas Sarboni](mailto:max-k@post.com) et [Romain Di Santo](mailto:romain.disanto@gmail.com)
 .footnote[Shake Your Brain<br />.red[©] [Ausy](http://www.ausy.fr) 2016]
 ---
-# Introduction : Présentation de la conférence (Romain)
+# Présentation de la conférence
 ---
 layout: false
 ## <p align="center">Quoi ? Où ? Quand ? Avec Qui ?</p>
@@ -142,28 +147,99 @@ layout: false
 <p class="pull-right">Quand : 7 OCTOBRE 2016<br/>
 Lieu : Marseille - Stade Orange Vélodrome</p>
 ---
-layout: false
 Des grands comptes
 
 ![plancheLogo](images/logo/page_logos.png)
 <p align="right">pour ne citer qu'eux ...</p>
 
 ---
+layout: true
 template: inverse
-# Le rôle du SysAdmin dans le process DevOps (Thomas)
+---
+# Le rôle du SysAdmin dans le process DevOps
+---
+## Dev / Ops : Un antagonisme
+![NotDevOps](images/not_dev_ops.jpg)
+.right[[source](http://www.clubic.com/pro/it-business/actualite-618506-devops-developpement-agile.html)]
+---
+## Pour faire plus simple
+![ConfusionWall](images/confusion_wall.jpg)
+.right[[source](http://www.slideshare.net/buzdin/introduction-to-devops)]
+---
+## DevOps : La discipline de la réconciliation
+![DevOps](images/devops-process2.png)
+.right[[source](https://www.suse.com/fr-fr/promo/devops/)]
 ---
 layout: false
+## DevOps : Un truc de Dev ?
+
+### Outils programmatiques / API
+ * Orchestration : Puppet, Chef, CFEngine, Ansible, ...
+ * Conteneurs : Docker, Swarm, Vagrant, ...
+ * Cloud : OpenStack, AWS, ...
+
+### Everything As Code
+ * Infrastructure As Code : Terraform, CloudFormation, ...
+ * Pipelines As Code : GitlabCI, TravisCI, Jenkinsv2, ...
+ * Documentation As Code : Sphinx, Javadoc, RsT, Markdown, ...
+ * Slides As Code : @ your service ;-)
+---
+## Devops : De nouveaux challenges pour les ops ?
+
+### Immédiateté des ressources
+ * Fourniture rapide de ressources
+ * Automatisation (API ?)
+
+### Cycles de dev branchés sur la prod
+ * Automatisation
+ * Industrialisation
+
+#### L'Ops doit-il lui aussi faire du DevOps ?!?
+---
+## Un travail moins intéressant pour les Ops ?
+
+### Scalabilité et résiliance portées par les applications
+ * Micro-services
+ * Stateless
+ * Scalabilité horizontale
+ * Immutabilité
+
+#### L'Ops est-il déjà mort ?!?
 ---
 template: inverse
-# Intégration continue et déploiement continu (Romain)
+## L'avenir : Les équipes intégrées
+![Cooperation](images/cooperation-png-10325.png)
+.right[[source](http://www.freeiconspng.com/free-images/cooperation-png-10325)]
+---
+## Le futur de l'Ops : Suivre le modèle du Dev
+
+### Proximité avec le client
+ * Collecte de feedback
+ * Métriques / Indicateurs
+
+### Modèle d'organisation itératif
+ * Versionning
+ * Sprints
+ * Budget itératif ?
+
+### Dérationalisation
+ * Déspécialisation
+ * Vision globale
 ---
 layout: true
-class: center, middle
+template: inverse
 ---
+## L'Ops comme pilier du modèle DevOps
+![DevOpsLoop](images/devopsloop.png)
+.right[[source](http://blogs.atlassian.com/2016/03/how-to-choose-devops-tools/)]
+---
+# Intégration continue et déploiement continu
+---
+layout: false
+class: center, middle
 # Intégration continue
 ![whyci](images/why_ci.png)
 ---
-layout: false
 ## Qu'est-ce que l'intégration continue ?
 A chaque évolution du code de l'application
 
@@ -183,13 +259,10 @@ A chaque évolution du code de l'application
 - fluidifier le diagnostic d'un bug
 - améliorer la communication
 ---
-layout: true
 class: center, middle
----
 # Déploiement continu
 ![automaateall](images/automateallthings.png)
 ---
-layout: false
 ## Qu'est-ce que le déploiement continue ?
 
 Intervient après les tests et validations de l'applications
@@ -216,16 +289,20 @@ pertes de sessions si l'application n'est pas stateless
 <br/>
 changement de schémas dans les db relationnelles
 ---
+layout: true
 template: inverse
-# La communication dans le processus DevOps - Process et outils (Thomas)
+---
+# La communication dans le processus DevOps - Process et outils
+---
+## La communication comme fondement du DevOps
+![Collaboration](images/dev-ops.jpg)
+.right[[source](https://tomasid.wordpress.com/2016/06/28/pourquoi-les-entreprises-evoluent-elles-vers-devops/)]
+---
+## prout
+---
+# Architectures immutables
 ---
 layout: false
----
-template: inverse
-# Architectures immutables (Romain)
----
-layout: false
-
 ## Automatiser le process en production 1/4
   - coûts serveurs sont de plus en plus bas
   - valeur = management des serveurs 
@@ -236,11 +313,7 @@ layout: false
   - résultat = instances de serveur éphémères et immutables
 
 ![petvscattle](images/pets_vs_cattle.jpg)
-
-
 ---
-layout: false
-
 ## Automatiser le process en production 2/4
 
 ###HUMANLESS POWERTOOLS
@@ -253,10 +326,7 @@ layout: false
 
   - capacity planning : immutable infra != 2 serveurs
   - il faut des ressources pour copier une partie de l'infra pendant un moment pour l'effacer ensuite
-
 ---
-layout: false
-
 ## Automatiser le process en production 3/4
 
 #### STATELESS et mono process
@@ -276,10 +346,7 @@ up et prêt à recevoir de requêtes = état vivant
 
 
 ###**ET ... <u>trasher</u> l'ancienne version !**
-
 ---
-layout: false
-
 ## Automatiser le process en production 4/4
 #### Rester consistant et prédictible
 
@@ -287,12 +354,10 @@ layout: false
 - tout monitorer ! 
 
 ![monitoring](images/monitoring.jpg)
-
 ---
 template: inverse
-# Conclusion (Thomas)
+# Conclusion
 ---
-layout: false
 ---
 name: last-page
 template: inverse
