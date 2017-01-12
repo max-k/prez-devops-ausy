@@ -240,37 +240,33 @@ template: inverse
 ---
 # Intégration continue et déploiement continu
 ---
-layout: false
-class: center, middle
-# Intégration continue
+## Qu'est-ce que l'intégration continue ?
 ![whyci](images/why_ci.png)
 ---
-## Qu'est-ce que l'intégration continue ?
+layout: false
 A chaque évolution du code de l'application
 
-####Déclencher un ou plusieurs scénario(s) bloquant ou non, via un évenement
+###Déclencher un ou plusieurs scénario(s) bloquant ou non, via un évenement
 - tests unitaires (le code, ex:  test les retours de méthodes)
 - tests fonctionnels (les features, ex: le process d'authentification utilisateur fonctionne toujours)
 - build de l'application
 - notifications
 
-####Peut générer d'autres actions en chaine : 
+###Peut générer d'autres actions en chaine : 
 - ouvrir un ticket de bug
 - lancer un test de conformité / performance
 - lancer le déploiement vers un environnement supérieur dans la chaine
 
-####Objectifs : 
+###Objectifs : 
 - gagner du temps
 - fluidifier le diagnostic d'un bug
 - améliorer la communication
 ---
-class: center, middle
-# Déploiement continu
+template: inverse
+## Qu'est-ce que le déploiement continue ?
 ![automaateall](images/automateallthings.png)
 ---
-## Qu'est-ce que le déploiement continue ?
-
-Intervient après les tests et validations de l'applications
+### Intervient après les tests et validations de l'applications
 
 - automatise la mise en production du package
 - gère les dépendances de la release
@@ -279,7 +275,7 @@ Intervient après les tests et validations de l'applications
 - execute des tests post-production
 - permet un retour arrière aisé
 
-Différentes méthodes possibles :
+### Différentes méthodes possibles :
 
 - AB TESTING
 
